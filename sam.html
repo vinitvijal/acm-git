@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="flex justify-center items-center p-20 bg-gray-200"
+  >
+    <div
+      class="w-80 bg-gray-500 p-4 rounded-lg text-white shadow-md hover:shadow-xl hover:shadow-blue"
+    >
+      <div
+        id="display"
+        class="bg-blue-500 text-white text-2xl p-4 rounded mb-4 text-right shadow-lg"
+      >
+        0
+      </div>
+      <div class="grid grid-cols-4 gap-2">
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('1')"
+        >
+          1
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('2')"
+        >
+          2
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('3')"
+        >
+          3
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('+')"
+        >
+          +
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('4')"
+        >
+          4
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('5')"
+        >
+          5
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('6')"
+        >
+          6
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('-')"
+        >
+          -
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('7')"
+        >
+          7
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('8')"
+        >
+          8
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('9')"
+        >
+          9
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('*')"
+        >
+          *
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="clr()"
+        >
+          C
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('0')"
+        >
+          0
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300p-1"
+          onclick="del()"
+        >
+          Del
+        </button>
+        <button
+          class="border-b-2 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+          onclick="insert('/')"
+        >
+          /
+        </button>
+      </div>
+      <button
+        class="border-b-2 rounded-lg w-full mt-4 bg-gray-600 rounded-lg hover:shadow-lg transition-shadow duration-300 p-1"
+        onclick="calc()"
+      >
+        =
+      </button>
+    </div>
+
+    <script>
+      const display = document.getElementById("display");
+
+      function insert(value) {
+        display.innerText =
+          display.innerText === "0"
+            ? value
+            : display.innerText + value;
+      }
+
+      function clr() {
+        display.innerText = "0";
+      }
+
+      function del() {
+        display.textContent =
+          display.textContent.length === 1
+            ? "0"
+            : display.textContent.slice(0, -1);
+      }
+
+      function calc() {
+        display.innerText = eval(display.innerText) || "0";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class=" h-screen w-full flex justify-center items-center bg-gray-500">
+    <div class="main h-3/5 w-1/5 border rounded-lg gap-3 bg-white shadow-lg p-3 flex flex-col">
+        <div class="top flex-1 w-full flex justify-center gap-4 flex-col items-center  border">
+            <h1 class=" text-2xl font-bold" id="city">City</h1>
+            <h2 class=" text-lg font-semibold">Temperature: <span id="temperature">0</span> C</h2> 
+            <h2>Wind Speed: <span id="speed"></span> km/h</h2>
+        </div>
+        <div class="bottom flex w-full gap-2">
+            <input id="cityName" type="text" class=" w-full p-2 rounded-lg border " placeholder="City..."/>
+            <button onclick="getWeather()" class=" px-3 py-2 border rounded-lg bg-black text-white ">Search</button>
+        </div>
+    </div>
+
+
+    <script>
+        let api = 'https://api.openweathermap.org/data/2.5/weather?appid=0c42f7f6b53b244c78a418f4f181282a&units=metric&q='
+
+        async function getWeather(){
+            let city = document.getElementById('cityName').value;
+
+            const response = await fetch(api+city)
+            const data =  await response.json()
+            console.log(data)
+
+            document.getElementById('city').innerText = data['name']
+            document.getElementById('temperature').innerText = data['main']['temp']
+            document.getElementById('speed').innerText = data['wind']['speed']
+
+        }
+    </script>
+</body>
+</html>
