@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button id="Add" onclick="add()" >Add</button>
+    <button id="Sub" onclick="sub()" >Sub</button>
+    <button id="Multi" onclick="multi()" >Multiply</button>
+    <p>Result: <span id="result">0</span></p>
+
+
+
+    <script>
+        // alert("Good Morning");
+        
+        // alert(c); 
+        // var paragraph = document.getElementById("para");
+        // console.log(paragraph.innerText);
+
+        function add(){
+            var n1 = document.getElementById('num1').value
+            var n2 = document.getElementById('num2').value
+            var res =  parseInt(n1) + parseInt(n2)
+            document.getElementById('result').innerText =  res
+            document.getElementById('num1').value = ""
+            document.getElementById('num2').value = ""
+        }
+
+        
+        function sub(){
+            var n1 = document.getElementById('num1').value
+            var n2 = document.getElementById('num2').value
+            var res =  parseInt(n1) - parseInt(n2)
+            document.getElementById('result').innerText =  res
+        }
+
+        
+        function multi(){
+            var n1 = document.getElementById('num1').value
+            var n2 = document.getElementById('num2').value
+            var res =  parseInt(n1) * parseInt(n2)
+            document.getElementById('result').innerText =  res
+        }
+
+
+
+    </script>
+</body>
+</html>
